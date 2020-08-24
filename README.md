@@ -4,8 +4,8 @@
 eviction candidate from the cache, our scheme decides, based on the recent access history, whether it is worth admitting the new item into the cache at the expense of the eviction candidate.
 
 ##### WTinyLfu++ is based on the research papers evaluating its novel eviction policy.
- - [TinyLFU: A Highly Efficient Cache Admission Policy]("https://dl.acm.org/authorize?N41277")  by Gil Einziger, Roy Friedman, Ben Manes
-- [Adaptive Software Cache Management]("https://dl.acm.org/authorize?N675830") by Gil Einziger, Ohad Eytan, Roy Friedman, Ben Manes\
+ - [TinyLFU: A Highly Efficient Cache Admission Policy](https://dl.acm.org/authorize?N41277)  by Gil Einziger, Roy Friedman, Ben Manes
+- [Adaptive Software Cache Management](https://dl.acm.org/authorize?N675830) by Gil Einziger, Ohad Eytan, Roy Friedman, Ben Manes\
 
 You can also see [Caffine caching library](https://github.com/ben-manes/caffeine), which implements WtinyLfu in java.
 

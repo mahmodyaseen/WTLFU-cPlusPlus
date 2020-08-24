@@ -1,5 +1,5 @@
 # WTLFU-cPlusPlus
-# Welcome to WTinyLfu++
+## Welcome to WTinyLfu++
 **WTinyLfu++** is a frequency based cache admission policy in order to boost the effectiveness of caches subject to skewed access distributions. Given a newly accessed item and an
 eviction candidate from the cache, our scheme decides, based on the recent access history, whether it is worth admitting the new item into the cache at the expense of the eviction candidate.
 

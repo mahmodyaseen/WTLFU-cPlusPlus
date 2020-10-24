@@ -15,6 +15,13 @@
 # include <ctime>
 # include <limits>
 
+/**
+ * Count-Min Sketch data structure with optional conservative addition.
+ * <p>
+ * This is a derived from <tt>alabid/countminsketch</tt> provided by
+ * <a href="https://github.com/alabid/countminsketch">StreamLib</a>.
+ */
+
 using namespace std;
 
 class countMin64 {

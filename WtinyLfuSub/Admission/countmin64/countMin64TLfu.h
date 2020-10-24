@@ -10,7 +10,11 @@
 #include "../../BasicSettings.h"
 #define MAX_COUNT 15
 
-
+/**
+      * A version of the TinyLFU sketch based on a regular conservative update sketch. The difference is
+      * that a counter may not exceed a maximum and any time the sum of events reach a predefined values
+    * we divide all counters by 2 in what is called a reset operation.
+ */
 
 class cm64TinyLFU: public Frequency {
 private:

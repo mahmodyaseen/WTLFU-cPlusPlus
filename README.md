@@ -6,7 +6,8 @@ eviction candidate from the cache, our scheme decides, based on the recent acces
  - [TinyLFU: A Highly Efficient Cache Admission Policy]("https://dl.acm.org/authorize?N41277")  by Gil Einziger, Roy Friedman, Ben Manes
 - [Adaptive Software Cache Management]("https://dl.acm.org/authorize?N675830") by Gil Einziger, Ohad Eytan, Roy Friedman, Ben Manes\
 
-this C++ version of WTinyLFU derived from [Caffine caching library](https://github.com/ben-manes/caffeine), which implements WtinyLfu in java.
+this C++ version of WTinyLFU derived from [Caffine caching library](https://github.com/ben-manes/caffeine), which implements WtinyLfu in java.\
+see the map for more info.
 
 ### Usage
 Run the [Simulator](https://github.com/mahmodyaseen/WTLFU-cPlusPlus/blob/master/WtinyLfuSub/Simulator.cpp) in an IDE after specifying the desired [BasicSettings](https://github.com/mahmodyaseen/WTLFU-cPlusPlus/blob/master/WtinyLfuSub/BasicSettings.h). 

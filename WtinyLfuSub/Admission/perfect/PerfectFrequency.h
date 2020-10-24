@@ -11,6 +11,10 @@
 #include "../Frequency.h"
 #include "../../BasicSettings.h"
 
+/**
+ * A the perfect frequency with aging performed using a periodic reset.
+ */
+
 using namespace std;
 
 class perfectFrequency: public Frequency {

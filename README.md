@@ -1,13 +1,12 @@
-# WTLFU-cPlusPlus
-## Welcome to WTinyLfu++
+# Welcome to WTinyLfu++
 **WTinyLfu++** is a frequency based cache admission policy in order to boost the effectiveness of caches subject to skewed access distributions. Given a newly accessed item and an
 eviction candidate from the cache, our scheme decides, based on the recent access history, whether it is worth admitting the new item into the cache at the expense of the eviction candidate.
 
 ##### WTinyLfu++ is based on the research papers evaluating its novel eviction policy.
- - [TinyLFU: A Highly Efficient Cache Admission Policy](https://dl.acm.org/authorize?N41277)  by Gil Einziger, Roy Friedman, Ben Manes
-- [Adaptive Software Cache Management](https://dl.acm.org/authorize?N675830) by Gil Einziger, Ohad Eytan, Roy Friedman, Ben Manes\
+ - [TinyLFU: A Highly Efficient Cache Admission Policy]("https://dl.acm.org/authorize?N41277")  by Gil Einziger, Roy Friedman, Ben Manes
+- [Adaptive Software Cache Management]("https://dl.acm.org/authorize?N675830") by Gil Einziger, Ohad Eytan, Roy Friedman, Ben Manes\
 
-You can also see [Caffine caching library](https://github.com/ben-manes/caffeine), which implements WtinyLfu in java.
+this C++ version of WTinyLFU derived from [Caffine caching library](https://github.com/ben-manes/caffeine), which implements WtinyLfu in java.
 
 ### Usage
 Run the [Simulator](https://github.com/mahmodyaseen/WTLFU-cPlusPlus/blob/master/WtinyLfuSub/Simulator.cpp) in an IDE after specifying the desired [BasicSettings](https://github.com/mahmodyaseen/WTLFU-cPlusPlus/blob/master/WtinyLfuSub/BasicSettings.h). 
@@ -15,6 +14,11 @@ argumets are:-
 ```sh
 $ [Test File] [adaptive / sketch]
 ```
+the test format at the moment consists of one format:-
+```sh
+[Id]
+```
+
 
 ## Sample Report
 ### you can only run each policy independently.
@@ -41,4 +45,7 @@ $ [Test File] [adaptive / sketch]
 - change the way running each policy, insted of changing in [BasicSettings](https://github.com/mahmodyaseen/WTLFU-cPlusPlus/blob/master/WtinyLfuSub/BasicSettings.h) make it more reachable.
 - make sure Cmake is the minimum requierd version, and reachable on linux
 - more explanation on each API.
+
+
+
 

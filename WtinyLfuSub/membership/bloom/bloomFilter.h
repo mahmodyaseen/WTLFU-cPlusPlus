@@ -9,6 +9,13 @@
 #include <cmath>
 #include "../../BasicSettings.h"
 
+/**
+ * Count-Min Sketch data structure with optional conservative addition.
+ * <p>
+ * This is a derived from <tt>ArashPartow/bloom</tt> provided by
+ * <a href="https://github.com/ArashPartow/bloom">StreamLib</a>.
+ */
+
 class bloomFilter {
 private:
     long long SEED[4] ={ // A mixture of seeds from FNV-1a, CityHash, and Murmur3

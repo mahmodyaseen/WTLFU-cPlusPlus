@@ -14,7 +14,6 @@
 class PeriodicResetCountMin4 : public countMin4 {
 private:
     long long int ONE_MASK = 0x1111111111111111L;
-
     bloomFilter doorkeeper;
     int additions;
     int period;
@@ -27,6 +26,7 @@ public:
       this->enabled= settings->tinyLfu().countMin4().periodic().doorkeeper().enabled;
     }
 
+
     void ensureCapacity(long maximumSize) override {
       tableSize = maximumSize;
       countMin4::ensureCapacity(maximumSize);
@@ -35,6 +35,7 @@ public:
         period = 2147483647;
       }
     }
+
 
     int frequency(long e) override {
       int count =0;
@@ -47,6 +48,7 @@ public:
       return MIN(count, 15);
     }
 
+
     void increment(long e) override {
       if(enabled) {
         if (!doorkeeper.put(e)) {
@@ -57,6 +59,7 @@ public:
       }
     }
 
+
     static unsigned int countSetBits(unsigned int n) {
       unsigned int count = 0;
       while (n) {
@@ -65,6 +68,7 @@ public:
       }
       return count;
     }
+
 
     void tryReset(bool added) override {
       if (!added) {
@@ -85,4 +89,5 @@ public:
     }
 
 };
+
 #endif //WTINYLFU_PERIODICRESETCOUNTMIN4_H

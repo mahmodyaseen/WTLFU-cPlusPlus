@@ -8,6 +8,15 @@
 #include "../Frequency.h"
 #include "../../BasicSettings.h"
 
+/**
+ * A probabilistic multiset for estimating the popularity of an element within a time window. The
+ * maximum frequency of an element is limited to 15 (4-bits) and extensions provide the aging
+ * process.
+ *
+ *
+ * To add a new aging proccess just add an override function for tryReset.
+ */
+
 class countMin4 : public Frequency {
 private:
 

@@ -16,6 +16,7 @@ countMin4::countMin4(BasicSettings* settings) {
   ensureCapacity(counters);
 }
 
+
 int countMin4::frequency(long e)  {
     int hash = spread(hashCode(e));
     int start = (hash & 3) << 2;
@@ -28,6 +29,7 @@ int countMin4::frequency(long e)  {
     return frequency;
 }
 
+
 void countMin4::increment(long e) {
   if (conservative) {
     conservativeIncrement(e);
@@ -36,10 +38,10 @@ void countMin4::increment(long e) {
   }
 }
 
+
 void countMin4::regularIncrement(long e) {
   int hash = spread(hashCode(e));
   int start = (hash & 3) << 2;
-
   // Loop unrolling improves throughput by 5m ops/s
   int index0 = indexOf(hash, 0);
   int index1 = indexOf(hash, 1);
@@ -53,6 +55,7 @@ void countMin4::regularIncrement(long e) {
 
   tryReset(added);
 }
+
 
 void countMin4::conservativeIncrement(long e) {
   int hash = spread(hashCode(e));
@@ -94,5 +97,3 @@ void countMin4::ensureCapacity(long maximumSize) {
   tableMask = std::max(0, tableSize- 1);
 //  clear();
 }
-
-

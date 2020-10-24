@@ -47,7 +47,11 @@ int main(int argc,char* argv[]){
     events->push_back(event);
   }
   bool sketchFlag = false;
-  policyStats* policystats;
+//  policyStats* policystats;
+
+/*
+ * Choose the version to run, adaptive or sketch(defult 1%)
+ */
 
   if (compareStrings(myType, "adaptive")) {
     HillClimberWindowTinyLfuPolicy policyNew(0.99 , settings);
@@ -55,34 +59,46 @@ int main(int argc,char* argv[]){
     for (list<AccessEvent>::iterator it=events->begin(); it != events->end(); ++it)
       policyNew.record(it->getKey());
 
-    policystats = policyNew.stats();
+    policyStats* policystats = policyNew.stats();
     cout << policystats->getName() <<endl;
     infile.close();
+    cout <<"sketch type:- "<< settings->tinyLfu().getSketch() ;
+    cout << ", hillClimber.sketch:- "<< settings->hillClimberWindowTinyLfu().climberSketch<< endl;
+    cout << "--------------------------------------------->> "<<endl;
+    cout << ">> hit rate:- " << policystats->hitRate() << endl;
+    cout << ">> eviction count:- " << policystats->getEvictionCount()<< endl;
+    cout <<">> hit count:- "<< policystats->getHitCount()<< endl ;
+    cout <<">> miss count:- " << policystats->getMissCount()<< endl;
+    cout << ">> Evictions:- " << policystats->getEvictionCount() << endl;
+    cout <<">> time:- " << policystats->getStopwatch().elapsed()<< endl;
+
   } else if (compareStrings(myType, "sketch")) {
     WindowTinyLFUPolicy policyNew(0.99, settings);
     sketchFlag = true;
     for (list<AccessEvent>::iterator it = events->begin(); it != events->end(); ++it)
       policyNew.record(it->getKey());
 
-    policystats = policyNew.stats();
+    policyStats* policystats = policyNew.stats();
     cout << policystats->getName() <<endl;
     infile.close();
-  }
-
-
     cout <<"sketch type:- "<< settings->tinyLfu().getSketch() ;
     if(sketchFlag == true) {
       if (compareStrings(string(settings->tinyLfu().getSketch()), "count-min-4")) {
         cout << ", " << settings->tinyLfu().countMin4().reset ;
       }
       cout<< endl;
-    }else
-      cout << ", hillClimber.sketch:- "<< settings->hillClimberWindowTinyLfu().climberSketch<< endl;
+    }
     cout << "--------------------------------------------->> "<<endl;
     cout << ">> hit rate:- " << policystats->hitRate() << endl;
     cout << ">> eviction count:- " << policystats->getEvictionCount()<< endl;
     cout <<">> hit count:- "<< policystats->getHitCount()<< endl ;
     cout <<">> miss count:- " << policystats->getMissCount()<< endl;
+    cout << ">> Evictions:- " << policystats->getEvictionCount() << endl;
+    cout <<">> time:- " << policystats->getStopwatch().elapsed()<< endl;
+
+  }
+
+
 
 
   return 0;

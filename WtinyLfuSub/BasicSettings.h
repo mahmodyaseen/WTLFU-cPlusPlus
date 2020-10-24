@@ -190,11 +190,14 @@ public:
 
     class hillClimberWindowTinyLfuSettings {
     public:
-        //adam - 54.67%/56.05% - 54.47% = +0.2%
-        //Nadam - 54.616%/56.0% - 54.58% = +0.03%
-        //simple-climber - 54.83% - 55.58%/55.85% = +0.02%
-        //stochastic 54.29%/56.11% - 55.49% = ++0.2%
-        //ams-grad 55.40%/55.68% - 54.41% = +1%
+        /*
+          *names of the adaptive algorithms you can choose from to change the window size 1-5%
+          *adam - 54.67%/56.05% - 54.47% = +0.2%
+          *Nadam - 54.616%/56.0% - 54.58% = +0.03%
+          *simple-climber - 54.83% - 55.58%/55.85% = +0.02%
+          *stochastic 54.29%/56.11% - 55.49% = ++0.2%
+          *ams-grad 55.40%/55.68% - 54.41% = +1%
+        */
         const char *climberSketch = "ams-grad";
         const char * getClimberSketch(){
           return  climberSketch;

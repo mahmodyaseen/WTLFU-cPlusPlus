@@ -12,7 +12,13 @@
 #include "gradient/AmsGrad.h"
 #include "hill/SimpleClimber.h"
 #include "../../PolicyStats.h"
-#include " ../../../../../BasicSettings.h"
+//#include " ../../../../../BasicSettings.h"
+
+/*
+ * get the chosen adaptive version,
+ * change the comparstion that suits you to include your own adaptive algorithm
+ *
+ */
 
 static bool compareStrings1(string s1, string s2) {
   int compare = s1.compare(s2);

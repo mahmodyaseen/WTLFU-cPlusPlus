@@ -13,9 +13,6 @@ public:
 
     virtual bool admit(long candidateKey, long victimKey)=0;
 
-
-/** Returns an admittor that admits every candidate. */
-//        static Admittor always();
 };
 
 class AlwaysAdmit: public Admittor {
@@ -31,7 +28,4 @@ public:
     }
 };
 
-//static Admittor always() {
-//    return AlwaysAdmit();
-//}
 #endif //WTINYLFU_ADMITTOR_H

@@ -22,6 +22,13 @@
 #include <string>
 #include <memory>
 
+/**
+ * Admits new entries based on the estimated frequency of its historic use.
+ *
+ * this the main sketch in the Main cache area, offering multi-sketches.
+ * to add a sketch of your own, edit the string compare with a name of your own.
+ */
+
 using namespace std;
 
 bool compareStrings(string s1, string s2) {
@@ -46,14 +53,14 @@ private:
           return new IncrementalResetCountMin4(settings);
         } else if (compareStrings(reset,"climber")) {
           return new ClimberResetCountMin4(settings);
-//    } else if (compareStrings(reset,"indicator")) {
+//    } else if (compareStrings(reset,"indicator")) { // bug in the indicator working on it
 //        return new IndicatorResetCountMin4(config);
         }
       } else if (compareStrings(type, "count-min-64")) {
         return new cm64TinyLFU(settings);
       } else if (compareStrings(type,"random-table")) {
         return new RandomRemovalFrequencyTable(settings);
-//      } else if (compareStrings(type, "tiny-table")) {
+//      } else if (compareStrings(type, "tiny-table")) { /// there is problem need to be updated in tinyTable classes
 //            return new TinyCacheAdapter(settings);
       } else if (compareStrings(type, "perfect-table")) {
         return new perfectFrequency(settings);
@@ -68,6 +75,7 @@ public:
       this->policystats= stats;
     }
 
+
     ~TinyLfu(){
       delete sketch;
     }
@@ -76,9 +84,9 @@ public:
       sketch->increment(key);
     }
 
+
     bool admit(long candidateKey, long victimKey) {
       sketch->reportMiss();
-
       long candidateFreq = sketch->frequency(candidateKey);
       long victimFreq = sketch->frequency(victimKey);
       if (candidateFreq > victimFreq) {

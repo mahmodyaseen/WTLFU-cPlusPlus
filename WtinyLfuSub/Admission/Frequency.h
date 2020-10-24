@@ -7,6 +7,11 @@
 
 #include <string>
 
+/**
+ * A abstract multiset for estimating the popularity of an element.
+ *
+ */
+
 class Frequency {
 public:
 

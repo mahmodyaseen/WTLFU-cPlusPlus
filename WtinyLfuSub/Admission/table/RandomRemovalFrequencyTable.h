@@ -16,6 +16,17 @@
 #include <unordered_map>
 #include <ctime>
 
+/**
+ * A probabilistic multiset for estimating the popularity of an element within a time window. The
+ * maximum frequency of an element. The size of the sample in relation to the cache size can be
+ * controlled with a sample factor. Instead of halving the popularity of elements a random element
+ * is dropped when table is full.
+ *
+ * This class is used to check the feasibility of using TinyTable instead of CountMin Sketch.
+ *
+ * the build is based on the Java version of (Gil Einiziger) from Caffeiene library
+ * gilg1983@gmail.com (Gil Einziger)
+ */
 
 class RandomRemovalFrequencyTable : public Frequency{
 private:

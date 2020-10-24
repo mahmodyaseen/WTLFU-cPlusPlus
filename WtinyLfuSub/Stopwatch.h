@@ -10,6 +10,12 @@
 #include <chrono>
 #include <string>
 
+/**
+ *  tiny C++ implementation of a stopwatch.
+ * <p>
+ * This is a derived from <tt>Stopwatch/tt> provided by
+ * <a href="https://github.com/CrikeeIP/Stopwatch">StreamLib</a>.
+ */
 
 namespace stopwatch {
 

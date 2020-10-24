@@ -10,7 +10,7 @@
 #include "../../BasicSettings.h"
 
 /**
- * Count-Min Sketch data structure with optional conservative addition.
+ * bloom filter Sketch data structure .
  * <p>
  * This is a derived from <tt>ArashPartow/bloom</tt> provided by
  * <a href="https://github.com/ArashPartow/bloom">StreamLib</a>.
